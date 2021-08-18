@@ -13,8 +13,8 @@ function Card(props) {
       <div className="element__container">
         <p className="element__title">{props.card.name}</p>
         <div className="element__like-container">
-          <button id="like-button" type="button" className ="element__button"></button>
-          <span className="element__like-number">0</span>
+          <button type="button" className ="element__button"></button>
+          <span className="element__like-number">{props.card.likes.length}</span>
         </div>
       </div>
     </div>

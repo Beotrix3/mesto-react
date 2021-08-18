@@ -15,7 +15,7 @@ function App() {
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false)
   const [selectedCard, setSelectedCard] = React.useState(null)
   const [cards, setCards] = React.useState([])
-  const [status, setStatus] = React.useState({})
+  const [currentUser, setCurrentUser] = React.useState({})
 
   function handleEditAvatarClick() {
     setIsEditAvatarPopupOpen(true)
@@ -50,11 +50,11 @@ function App() {
 
   React.useEffect(() => {
     api.getUserInfo()
-      .then((status) => {
-        setStatus(status)
+      .then((currentUser) => {
+        setCurrentUser(currentUser)
       })
       .catch((err) => console.log(err))
-  }, [setStatus])
+  }, [setCurrentUser])
 
   return (
     <div className="App">
@@ -67,7 +67,7 @@ function App() {
           onEditAvatar={handleEditAvatarClick}
           onCardClick={onCardClick}
           cards={cards}
-          userStatus={status}
+          currentUser={currentUser}
         />
         <Footer />
 

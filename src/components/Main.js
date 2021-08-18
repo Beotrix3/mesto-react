@@ -1,18 +1,18 @@
 import Card from "./Card.js";
 
-function Main({cards, userStatus, onEditAvatar, onAddPlace, onEditProfile, onCardClick}) {
+function Main({cards, currentUser, onEditAvatar, onAddPlace, onEditProfile, onCardClick}) {
   return(
     <main>
       <section className="profile">
         <div className="profile__container-info">
-          <img src={userStatus.avatar} style={{ backgroundImage: `url(${userStatus.avatar})` }} alt="Аватар профиля" className="profile__avatar" />
+          <img src={currentUser.avatar} alt="Аватар профиля" className="profile__avatar" />
           <button type="button" className="profile__avatar-button" onClick={onEditAvatar}></button>
           <div className="profile__info">
             <div className="profile__title">
-              <h1 className="profile__name">{userStatus.name}</h1>
+              <h1 className="profile__name">{currentUser.name}</h1>
               <button type="button" className="profile__edit-button" onClick={onEditProfile}></button>
             </div>
-            <p className="profile__description">{userStatus.about}</p>
+            <p className="profile__description">{currentUser.about}</p>
           </div>
         </div>
         <button type="button" className="profile__add-button" onClick={onAddPlace}></button>
